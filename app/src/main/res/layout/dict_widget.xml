@@ -20,7 +20,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/actionButton"
-        android:text="Button"/>
+        android:id="@+id/buttonA"
+        android:text="a"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonB"
+        android:text="b"/>
 </LinearLayout>
