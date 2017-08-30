@@ -26,35 +26,24 @@ public class DictWidget extends AppWidgetProvider {
 
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
-            String number = String.format("%03d", (new Random().nextInt(900) + 100));
 
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(),R.layout.dict_widget);
             remoteViews.setTextViewText(R.id.appwidget_text, number2);
 
-            Intent intentA = new Intent(context, DictWidget.class);
-            intentA.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-            intentA.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
-            intentA.putExtra(LETTER_KEY, "A");
-
-            PendingIntent pendingIntentA = PendingIntent.getBroadcast(context, 0, intentA, PendingIntent.FLAG_UPDATE_CURRENT);
-            remoteViews.setOnClickPendingIntent(R.id.buttonA, pendingIntentA);
-
-
-
-            Intent intentB = new Intent(context, DictWidget.class);
-            intentB.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-            intentB.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
-            intentB.putExtra(LETTER_KEY, "B");
-
-            PendingIntent pendingIntentB = PendingIntent.getBroadcast(context, 1, intentB, PendingIntent.FLAG_UPDATE_CURRENT);
-            remoteViews.setOnClickPendingIntent(R.id.buttonB, pendingIntentB);
-
-
-            //remoteViews.setOnClickPendingIntent(R.id.buttonA, getPendingSelfIntent(context, MyOnClickA));
-            //remoteViews.setOnClickPendingIntent(R.id.buttonB, getPendingSelfIntent(context, MyOnClickB));
+            remoteViews.setOnClickPendingIntent(R.id.buttonA, getMyPendingIntent(context, appWidgetIds, "A", 1));
+            remoteViews.setOnClickPendingIntent(R.id.buttonB, getMyPendingIntent(context, appWidgetIds, "B", 2));
 
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
         }
+    }
+
+    private PendingIntent getMyPendingIntent(Context context, int[] appWidgetIds, String letter, int numOfLetter) {
+        Intent intentA = new Intent(context, DictWidget.class);
+        intentA.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        intentA.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+        intentA.putExtra(LETTER_KEY, letter);
+
+        return PendingIntent.getBroadcast(context, numOfLetter, intentA, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     @Override
@@ -79,10 +68,5 @@ public class DictWidget extends AppWidgetProvider {
         super.onReceive(context, intent);
     }
 
-    protected PendingIntent getPendingSelfIntent(Context context, String action) {
-        Intent intent = new Intent(context, getClass());
-        intent.setAction(action);
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-    }
 }
 
