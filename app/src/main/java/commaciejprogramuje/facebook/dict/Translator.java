@@ -52,7 +52,7 @@ public class Translator {
             Log.w("UWAGA", "sprawdzam: " + myKey);
 
 
-            /*myKey = myKey.toLowerCase();
+            myKey = myKey.toLowerCase();
 
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -63,15 +63,14 @@ public class Translator {
                     stringBuilder.append(e.getValue());
                     stringBuilder.append("\n");
                     // printing result is very slow
-                    //System.out.println(stringBuilder.toString());
+                    System.out.println(stringBuilder.toString());
                 }
             }
 
-            return stringBuilder.toString();*/
-            return "xxx";
-        } else {
-            return "";
+            //return stringBuilder.toString();
+
         }
+        return "";
 
 
         /*myKey = myKey.toLowerCase();
