@@ -48,14 +48,38 @@ public class Translator {
     }
 
     public String findKey(String myKey) {
-        Log.w("UWAGA", "sprawdzam: " + myKey);
+        if(myKey != null) {
+            Log.w("UWAGA", "sprawdzam: " + myKey);
 
-        myKey = myKey.toLowerCase();
+
+            /*myKey = myKey.toLowerCase();
+
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (Map.Entry<String, String> e : map.entrySet()) {
+                if (e.getKey().startsWith(myKey)) {
+                    stringBuilder.append(e.getKey());
+                    stringBuilder.append(e.getValue());
+                    stringBuilder.append("\n");
+                    // printing result is very slow
+                    //System.out.println(stringBuilder.toString());
+                }
+            }
+
+            return stringBuilder.toString();*/
+            return "xxx";
+        } else {
+            return "";
+        }
+
+
+        /*myKey = myKey.toLowerCase();
 
         if (map.keySet().contains(myKey)) {
             return map.get(myKey);
         } else {
             return "";
-        }
+        }*/
     }
 }
