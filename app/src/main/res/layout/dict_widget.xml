@@ -1,20 +1,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#09C"
-    android:padding="@dimen/widget_margin"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin">
 
     <TextView
         android:id="@+id/appwidget_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="#09C"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/finded_text"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:layout_margin="8dp"
+        android:background="#09C"
+        android:textColor="#ffffff"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,53 +31,53 @@
 
         <Button
             android:id="@+id/buttonQ"
-            android:text="Q"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="Q" />
 
         <Button
             android:id="@+id/buttonW"
-            android:text="W"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="W" />
 
         <Button
             android:id="@+id/buttonE"
-            android:text="E"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="E" />
 
         <Button
             android:id="@+id/buttonR"
-            android:text="R"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="R" />
 
         <Button
             android:id="@+id/buttonT"
-            android:text="T"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="T" />
 
         <Button
             android:id="@+id/buttonY"
-            android:text="Y"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="Y" />
 
         <Button
             android:id="@+id/buttonU"
-            android:text="U"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="U" />
 
         <Button
             android:id="@+id/buttonI"
-            android:text="I"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="I" />
 
         <Button
             android:id="@+id/buttonO"
-            android:text="O"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="O" />
 
         <Button
             android:id="@+id/buttonP"
-            android:text="P"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="P" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,48 +87,48 @@
 
         <Button
             android:id="@+id/buttonA"
-            android:text="A"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="A" />
 
         <Button
             android:id="@+id/buttonS"
-            android:text="S"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="S" />
 
         <Button
             android:id="@+id/buttonD"
-            android:text="D"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="D" />
 
         <Button
             android:id="@+id/buttonF"
-            android:text="F"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="F" />
 
         <Button
             android:id="@+id/buttonG"
-            android:text="G"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="G" />
 
         <Button
             android:id="@+id/buttonH"
-            android:text="H"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="H" />
 
         <Button
             android:id="@+id/buttonJ"
-            android:text="J"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="J" />
 
         <Button
             android:id="@+id/buttonK"
-            android:text="K"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="K" />
 
         <Button
             android:id="@+id/buttonL"
-            android:text="L"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="L" />
     </LinearLayout>
 
     <LinearLayout
@@ -130,50 +138,50 @@
 
         <ImageButton
             android:id="@+id/buttonClear"
-            android:src="@drawable/ic_clear_black_24dp"
             style="@style/KeyStoneStyle"
-            android:contentDescription="clear" />
+            android:contentDescription="clear"
+            android:src="@drawable/ic_clear_black_24dp" />
 
         <Button
             android:id="@+id/buttonZ"
-            android:text="Z"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="Z" />
 
         <Button
             android:id="@+id/buttonX"
-            android:text="X"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="X" />
 
         <Button
             android:id="@+id/buttonC"
-            android:text="C"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="C" />
 
         <Button
             android:id="@+id/buttonV"
-            android:text="V"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="V" />
 
         <Button
             android:id="@+id/buttonB"
-            android:text="B"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="B" />
 
         <Button
             android:id="@+id/buttonN"
-            android:text="N"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="N" />
 
         <Button
             android:id="@+id/buttonM"
-            android:text="M"
-            style="@style/KeyStoneStyle" />
+            style="@style/KeyStoneStyle"
+            android:text="M" />
 
         <ImageButton
             android:id="@+id/buttonBack"
-            android:src="@drawable/ic_keyboard_backspace_black_24dp"
             style="@style/KeyStoneStyle"
-            android:contentDescription="back" />
+            android:contentDescription="back"
+            android:src="@drawable/ic_keyboard_backspace_black_24dp" />
 
     </LinearLayout>
 

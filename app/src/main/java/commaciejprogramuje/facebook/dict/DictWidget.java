@@ -5,10 +5,17 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -16,10 +23,13 @@ import java.util.Objects;
  */
 public class DictWidget extends AppWidgetProvider {
     public static final String TEXT_KEY = "textKey";
-    String myText;
+    String myText = "";
+    Translator translator;
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        translator = new Translator(context);
+
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(),R.layout.dict_widget);
@@ -54,14 +64,11 @@ public class DictWidget extends AppWidgetProvider {
             remoteViews.setOnClickPendingIntent(R.id.buttonClear, getMyPendingIntent(context, appWidgetIds, ("clear"), 27));
             remoteViews.setOnClickPendingIntent(R.id.buttonBack, getMyPendingIntent(context, appWidgetIds, ("back"), 28));
 
-            appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
-
-            if(myText == null) {
-                Log.w("UWAGA", "null");
-            } else {
-                Log.w("UWAGA", myText);
+            if(myText != null && translator != null) {
+                remoteViews.setTextViewText(R.id.finded_text, translator.findKey(myText));
             }
 
+            appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
         }
     }
 
