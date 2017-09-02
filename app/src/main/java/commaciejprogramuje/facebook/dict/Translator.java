@@ -48,7 +48,11 @@ public class Translator {
     }
 
     public String findKey(String myKey) {
-        if(myKey != null) {
+        if(myKey.length() < 2) {
+            return "to short";
+        }
+
+
             Log.w("UWAGA", "sprawdzam: " + myKey);
 
 
@@ -61,16 +65,15 @@ public class Translator {
                 if (e.getKey().startsWith(myKey)) {
                     stringBuilder.append(e.getKey());
                     stringBuilder.append(e.getValue());
-                    stringBuilder.append("\n");
+                    //stringBuilder.append("\n");
                     // printing result is very slow
-                    System.out.println(stringBuilder.toString());
+                    //System.out.println(stringBuilder.toString());
                 }
             }
 
-            //return stringBuilder.toString();
+            return stringBuilder.toString();
 
-        }
-        return "";
+
 
 
         /*myKey = myKey.toLowerCase();

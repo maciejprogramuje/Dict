@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
@@ -66,6 +67,8 @@ public class DictWidget extends AppWidgetProvider {
 
             if(myText != null && translator != null) {
                 remoteViews.setTextViewText(R.id.finded_text, translator.findKey(myText));
+            } else if(myText == null) {
+                remoteViews.setTextViewText(R.id.finded_text, "");
             }
 
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
