@@ -1,7 +1,10 @@
 package commaciejprogramuje.facebook.dict;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -9,19 +12,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-/**
- * Created by m.szymczyk on 2017-08-28.
- */
 public class Translator {
     BufferedReader bufferedReader = null;
     String testLine;
     Map<String, String> map = new HashMap<>();
     String outputFileName = "output.txt";
+    List<String> resultsList = new ArrayList<>();
 
     public Translator(Context context) {
+        Log.w("UWAGA", "tworzę translator");
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(context.getAssets().open(outputFileName)));
 
@@ -41,47 +47,26 @@ public class Translator {
                 }
             }
             bufferedReader.close();
-            Log.w("UWAGA", "BAZA UTWORZONA");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String findKey(String myKey) {
-        if(myKey.length() < 2) {
-            return "to short";
-        }
-
-
-            Log.w("UWAGA", "sprawdzam: " + myKey);
-
-
+    public List<String> findKey(String myKey) {
+        resultsList.clear();
+        if (myKey.length() >= 2) {
             myKey = myKey.toLowerCase();
-
-
-            StringBuilder stringBuilder = new StringBuilder();
-
             for (Map.Entry<String, String> e : map.entrySet()) {
                 if (e.getKey().startsWith(myKey)) {
-                    stringBuilder.append(e.getKey());
-                    stringBuilder.append(e.getValue());
-                    //stringBuilder.append("\n");
-                    // printing result is very slow
-                    //System.out.println(stringBuilder.toString());
+                    resultsList.add(e.getKey() + e.getValue() + "\n");
                 }
             }
-
-            return stringBuilder.toString();
-
-
-
-
-        /*myKey = myKey.toLowerCase();
-
-        if (map.keySet().contains(myKey)) {
-            return map.get(myKey);
         } else {
-            return "";
-        }*/
+            resultsList.add("too short");
+        }
+        Collections.sort(resultsList);
+
+        return resultsList;
     }
+
 }

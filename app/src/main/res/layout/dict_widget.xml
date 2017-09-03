@@ -13,19 +13,39 @@
         android:background="#09C"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        android:textStyle="bold|italic"
-        android:hint="enter word"/>
+        android:textStyle="bold|italic" />
+
 
     <TextView
-        android:id="@+id/finded_text"
+        android:id="@+id/founded_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="110sp"
-        android:maxHeight="110sp"
         android:layout_margin="8dp"
         android:background="#09C"
+        android:maxHeight="40sp"
+        android:minHeight="40sp"
         android:textColor="#ffffff"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#09C"
+        android:maxHeight="40sp"
+        android:minHeight="40sp"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:text="EMPTY"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/widgetCollectionList"
+        android:layout_width="match_parent"
+        android:layout_height="110sp">
+    </ListView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
